@@ -1,10 +1,23 @@
 import React from "react";
 
+const abbreviate = require("number-abbreviate");
+
 export default function Deal(props) {
-  const { image_url, name, monthly_rental } = props;
+  const {
+    image_url,
+    name,
+    monthly_rental,
+    transmission,
+    engine_type,
+    rental_profile,
+    contract_type,
+    milleage_num,
+    type,
+    initial_rental
+  } = props;
 
   return (
-    <div className="container">
+    <div className="container border my-3 p-2">
       <div className="row">
         <div className="col-2">
           <img src={image_url} alt={name} width="150" />
@@ -12,20 +25,33 @@ export default function Deal(props) {
         </div>
 
         <div className="col-2">
-          KIAXCeed Petrol|Manual|FWD Lease Type Personal
+          <p>
+            {name} {engine_type}|{transmission}|{type}
+          </p>
+          <p>
+            Lease Type <span className="warning">{contract_type}</span>
+          </p>
         </div>
 
         <div className="col-4">
-          <p>Payment Profile 9 + 23</p>
-          <p>Miles per Annum 5k</p>
+          <p>Payment Profile {rental_profile}</p>
+          <p>Miles per Annum {abbreviate(milleage_num)}</p>
         </div>
 
         <div className="col-2">thumnail</div>
 
-        <div className="col-2">
-          <h3 className="m-0">{monthly_rental}</h3>
-          <small className="text-muted m-0">Per Month inc. VAT</small>
-          <button className="btn btn-success">Review Deal</button>
+        <div className="col-2 d-flex flex-column justify-content-between">
+          <div>
+            <h6 className="m-0">&pound;{monthly_rental}</h6>
+            <small className="text-muted m-0">Per Month inc. VAT</small>
+          </div>
+          <div>
+            <h6 className="m-0">&pound;{initial_rental}</h6>
+            <small className="text-muted m-0">Total Upfront</small>
+          </div>
+          <div>
+            <button className="btn btn-success">Review Deal</button>
+          </div>
         </div>
       </div>
     </div>

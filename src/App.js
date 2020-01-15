@@ -48,15 +48,19 @@ class App extends React.Component {
         <h3>React Mini-App</h3>
         <hr />    
 
-        {totalItemsCount ?  
-          <Pagination
-            activePage={activePage}
-            itemsCountPerPage={10}
-            totalItemsCount={totalItemsCount}
-            pageRangeDisplayed={5}
-            onChange={handlePageChange}
-          />
-        : null  }
+        <div className="d-flex justify-content-center my-4">
+          {totalItemsCount ?  
+            <Pagination
+              itemClass="page-item"
+              linkClass="page-link"
+              activePage={activePage}
+              itemsCountPerPage={10}
+              totalItemsCount={totalItemsCount}
+              pageRangeDisplayed={5}
+              onChange={handlePageChange}
+            />
+          : null  }
+        </div>
 
         {deals.map(deal => {
           return <Deal key={deal.id} {...deal} />;
