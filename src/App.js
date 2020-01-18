@@ -5,7 +5,9 @@ import Pagination from "react-js-pagination";
 
 import Deal from "./components/Deal";
 
-require("bootstrap/less/bootstrap.less");
+// require("bootstrap/less/bootstrap.less");// remove this it is useless
+// the issue here is it need bootstrap 3 meanwhile you have bootstrap 4
+// it's for styling the paginage components  <Pagination
 
 
 
@@ -51,8 +53,8 @@ class App extends React.Component {
         <div className="d-flex justify-content-center my-4">
           {totalItemsCount ?  
             <Pagination
-              itemClass="page-item"
-              linkClass="page-link"
+              itemClass="page-item" // this the replacements
+              linkClass="page-link" // and this the replacements
               activePage={activePage}
               itemsCountPerPage={10}
               totalItemsCount={totalItemsCount}
